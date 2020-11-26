@@ -10,7 +10,7 @@ class Room < ApplicationRecord
   attribute :slug, :string
   validates :slug, uniqueness: { scope: :workspace_id }
 
-  # FriendlyId's does the legwork to make the slug uri-friendly
+  # FriendlyId does the legwork to make the slug uri-friendly
   extend FriendlyId
   friendly_id :name, use: :scoped, scope: :workspace
 
