@@ -40,3 +40,20 @@ Feature: Entering Rooms
     And the Workspace Member is placed in the "Listed Room 2" Room
     And the Workspace Member hit the back button
     Then the Workspace Member is placed in the "Listed Room 1" Room
+
+
+  @unimplemented-steps
+  Scenario: Access Permissions
+    Given a Workspace with Locked and Unlocked Rooms
+    Then the following permissions apply when Entering the Rooms
+      | relationship | configuration    | has access code | can enter? |
+      | Guest        | Locked           | yes             | yes        |
+      | Guest        | Locked           | no              | no         |
+      | Member       | Locked           | yes             | yes        |
+      | Member       | Locked           | no              | no         |
+      | Member       | Internal         | n/a             | yes        |
+      | Guest        | Internal         | n/a             | no         |
+      | Member       | Locked, Internal | no              | no         |
+      | Member       | Locked, Internal | yes             | yes        |
+      | Guest        | Locked, Internal | no              | no         |
+      | Guest        | Locked, Internal | yes             | no         |
